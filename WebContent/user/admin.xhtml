@@ -1,0 +1,785 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>WCSC - Admin</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<style>
+		/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+		@media (max-width: 600px) {
+    	.column {
+        	width: 100%;
+    		}
+		}
+		
+		*{
+    		box-sizing: border-box;
+    		font-family: Arial, Helvetica, sans-serif;
+		}
+
+		body {
+			background-image: url(bg.png);
+			background-position: center center;
+			background-repeat: no-repeat;
+				
+  			background-size: cover;
+  			background-attachment: fixed;
+  			min-height: 100vh;
+  			margin: 0;
+  			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		/* Style the top navigation bar */
+		.topnav {
+    		overflow: hidden;
+    		font-weight: bold;
+    		color: #ffff;
+    		font-family:  "Times New Roman", Georgia, Serif;
+    		background-color: rgba(200,200,200,0.1);
+		}
+
+		/* Style the content */
+		.content {
+			border-radius:20px;
+    		
+    		padding: 10px;
+    		
+		}
+
+		/* Style the footer */
+		.footer {
+			background: rgba(245,248,250,1);
+			background: -moz-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,248,250,1)), color-stop(35%, rgba(220,228,234,1)), color-stop(69%, rgba(183,200,209,1)), color-stop(89%, rgba(213,227,235,1)), color-stop(100%, rgba(229,242,250,1)));
+			background: -webkit-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -o-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -ms-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: linear-gradient(to bottom, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8fa', endColorstr='#e5f2fa', GradientType=0 );
+			color:rgb(   100, 97, 97 );
+			border-radius:20px;
+    		padding: 10px;
+    		text-align: center;
+    		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		
+		/* Style the header */
+		.news {
+    	background-color: #f1f1f1;
+    	padding: 0px;
+    	text-align: center;
+    	font-size: 25px;
+		}
+		
+		/* Create three equal columns that floats next to each other */
+		.column {
+			background-color: rgb( 138, 136, 136 );
+    		float: left;
+    		width:100%;
+    		padding: 10px;
+    		
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+    	content: "";
+    	display: table;
+    	clear: both;
+		}
+		
+		.fontWhite
+		{
+			
+			background: rgba(245,248,250,1);
+			background: -moz-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,248,250,1)), color-stop(35%, rgba(220,228,234,1)), color-stop(69%, rgba(183,200,209,1)), color-stop(89%, rgba(213,227,235,1)), color-stop(100%, rgba(229,242,250,1)));
+			background: -webkit-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -o-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -ms-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: linear-gradient(to bottom, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8fa', endColorstr='#e5f2fa', GradientType=0 );
+			
+			border-radius:20px;
+			color: rgba( 32, 32, 32 ,1);
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			font-size: 1em;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			
+			 
+		}
+		
+		.boxNews
+		{
+			padding: 10px;
+			background: rgba(245,248,250,1);
+			background: -moz-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,248,250,1)), color-stop(35%, rgba(220,228,234,1)), color-stop(69%, rgba(183,200,209,1)), color-stop(89%, rgba(213,227,235,1)), color-stop(100%, rgba(229,242,250,1)));
+			background: -webkit-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -o-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -ms-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: linear-gradient(to bottom, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8fa', endColorstr='#e5f2fa', GradientType=0 );
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+			
+		</style>
+	</h:head>	
+	<h:body>
+	
+		<f:metadata>		
+			<f:event type="preRenderView" listener="#{adminBean.validateSession(userBean.userLogin)}"/>		
+		</f:metadata>
+	
+	
+		<div class="topnav">
+  			<h:form id="formHeader">
+  				<table style="width:100%;" >
+  					<tr>
+  						<td style="width:10%; text-align:center; border-radius: 100px; background-color:#fff;" > <p:graphicImage url="/images/keysecurity.png" style="width:60px; " /> </td>
+  						<td style="width:60%; text-align:center; font-size: 2em; "> <p:outputLabel value="Administrador, #{userBean.userLogin.fullName}"/> </td>
+  						<td style="width:30%; text-align:right;" > 
+  						<p:splitButton value="Opciones" icon="ui-icon ui-icon-gear" >
+                           <p:menuitem value="Ayuda" icon="ui-icon ui-icon-help" style="width: 100px;"/>
+                           <p:menuitem value="Salir" action="#{userBean.exit()}" icon="ui-icon ui-icon-power" />
+                        </p:splitButton>
+  						</td>
+  					</tr>
+  					
+  				
+  				</table>
+				
+			</h:form>
+		</div>
+
+		<div class="content">
+  			
+  			<p:tabView id="tabView" orientation="left">
+					
+					<p:tab title="Noticias">
+					<h:form id="formInicio" style="text-align:center; width:100%;">					
+						<div class="row">
+							<!-- Noticia 1 -->
+  							<div class="column" width="100%" >
+  							
+  								<div class="boxNews" > 								 	
+    									
+    									<p:carousel autoPlayInterval="4000" id="carruselNews" value="#{adminBean.news}" headerText="Noticias" var="newN" itemStyle="text-align:center" responsive="true">
+        									<f:facet name="header">
+            								
+            									<p:commandButton value="Actualizar" icon="ui-icon ui-icon-arrowrefresh-1-s" update="carruselNews" action="#{adminBean.updateNews()}" />
+        									</f:facet>
+        									
+        									<p:panelGrid columns="1" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+            									<f:facet name="header">
+            										
+                									<p:graphicImage url="/images/simplenewicon.png" style="width:50px;"/> 
+            									</f:facet>
+            									
+            									<h:outputText value="#{newN.shortDescription}" style="font-weight: bold; width:100%; text-align:center;"/>
+                     				
+                    									<h:outputText value="#{newN.largeDescription}" style="width:100%; text-align:center;" />
+                     									
+                    									<h:outputText value="Fecha: #{newN.dateNews}" style="font-style:italic; width:100%; text-align:center;"/>
+                    									<h:outputText value="Estado: ACTIVA" rendered="#{'A' eq newN.state}" style="font-style:italic; width:100%; text-align:center;" />
+                    									<h:outputText value="Estado: INACTIVA" rendered="#{'I' eq newN.state}" style="font-style:italic; width:100%; text-align:center;" />                    									
+                										<h:outputText value="Id usuario: #{newN.idUser}" style="font-style:italic; width:100%; text-align:center;"/>
+ 														<p:commandButton icon="ui-icon ui-icon-gear" update="tabView:formInicio:newDetail" oncomplete="PF('newDialog').show()" value="Opciones" >
+                											<f:setPropertyActionListener value="#{newN}" target="#{adminBean.selectedNew}" />
+                										</p:commandButton>
+            									
+        									</p:panelGrid>
+ 
+        
+    									</p:carousel>
+    									
+    									<p:dialog header="Opciones" widgetVar="newDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        										<p:outputPanel id="newDetail" style="text-align:center;">
+            										<p:panelGrid  columns="2" rendered="#{not empty adminBean.selectedNew}" columnClasses="label,value">
+                			 							
+                			 							<p:outputLabel value="Título:" />
+                			 							<p:outputLabel value="#{adminBean.selectedNew.shortDescription}" />
+                			 							
+                			 							<p:outputLabel value="Descripcion:" />
+                			 							<p:outputLabel value="#{adminBean.selectedNew.largeDescription}" />	
+                			 								
+                										<h:outputText value="Bloquear noticia:" />
+                										<p:commandButton  action="#{adminBean.loockNew()}" icon="ui-icon ui-icon-locked" update="carruselNews" />
+                 										
+                 										<h:outputText value="Activar noticia:" />
+                										<p:commandButton action="#{adminBean.unloockNew()}" icon="ui-icon ui-icon-unlocked" update="carruselNews" />
+                 										               											                 		                 		                 				
+            										</p:panelGrid>
+        										</p:outputPanel>
+    										</p:dialog>	
+    										
+    																 	
+  								
+  								</div>
+  							
+  							</div> 			
+  							
+						</div>					
+				
+					</h:form>
+					</p:tab>
+		
+		
+					<p:tab title="Usuarios">					
+								         
+					
+						<h:form id="formUsers">			   			
+									
+									<p:dataTable id="tableUsers" var="user" value="#{adminBean.users}" widgetVar="usersTable"
+                 						emptyMessage="No hubo resultados con ese criterio" filteredValue="#{adminBean.filteredUsers}"
+                 						selectionMode="single" selection="#{adminBean.selectedUser}" rowKey="#{user.id}"
+                 						scrollable="true" scrollHeight="300">
+ 
+        								<f:facet name="header">
+        									Tabla de usuarios	   								
+        									
+        									<p:commandButton value="Actualizar" icon="ui-icon ui-icon-arrowrefresh-1-s" action="#{adminBean.updateUsers()}" update="tabView:formUsers:tableUsers" />
+  							            	<p:outputPanel style="text-align:left;" >
+  							            	 
+        									
+                								<h:commandLink action="#{adminBean.reportExcel()}">
+												<p:graphicImage url="/images/excel.png" style="width:40px;" />
+
+											</h:commandLink>
+
+											<h:commandLink action="#{adminBean.reportPDF()}">
+												<p:graphicImage url="/images/pdf.png" style="width:40px;" />
+
+											</h:commandLink>   
+                							
+        									
+  								            </p:outputPanel>					
+  							            	 							            	
+  							            	<p:outputPanel style="text-align:right;" >
+                								<h:outputText value="Búsqueda en cualquier campo:" />
+                								<p:inputText id="globalFilter" onkeyup="PF('usersTable').filter()" style="width:150px" placeholder="Palabra clave"/>
+            								</p:outputPanel>
+        								</f:facet>
+        								
+        								<p:ajax event="rowSelect" update="tabView:userChanges:userDetail" oncomplete="PF('userDialog').show()"  />
+ 
+        								<p:column filterBy="#{user.id}" headerText="Id" filterMatchMode="contains" style="width:6%;">
+            								<h:outputText value="#{user.id}" />
+        								</p:column>
+        								
+        								<p:column filterBy="#{user.fullName}" headerText="Nombre" filterMatchMode="startsWith">
+            								<h:outputText value="#{user.fullName}" />
+        								</p:column>
+        								
+        								<p:column filterBy="#{user.userName}" headerText="Usuario" filterMatchMode="contains">
+            								<h:outputText value="#{user.userName}" />
+        								</p:column>
+        								
+        								<p:column filterBy="#{user.emailAddress}" headerText="Correo" filterMatchMode="startsWith" style="width:18%;">
+            								<h:outputText value="#{user.emailAddress}" />
+        								</p:column>
+        								
+        								<p:column filterBy="#{user.phoneNumber}" headerText="Teléfono" filterMatchMode="startsWith">
+            								<h:outputText value="#{user.phoneNumber}" />
+        								</p:column>
+        								
+        								<p:column filterBy="#{user.dateLastPassword}" headerText="Último cambio contraseña" filterMatchMode="startsWith">
+            								<h:outputText value="#{user.dateLastPassword}" />
+        								</p:column>
+        								
+        								<p:column filterBy="#{user.active}" headerText="Estado" filterMatchMode="startsWith">
+            								<h:outputText value="Activo" rendered="#{'A' eq user.active}" />
+                							<h:outputText value="Inactivo" rendered="#{'I' eq user.active}" />
+        								</p:column>     
+ 
+        								<p:column filterBy="#{user.userType}" headerText="Tipo" filterMatchMode="in">
+            								<f:facet name="filter">
+                								<p:selectCheckboxMenu label="Tipos" onchange="PF('usersTable').filter()" panelStyle="width:125px" scrollHeight="150">
+                    								<f:selectItems value="#{userConstansBean.userTypes}" />
+                								</p:selectCheckboxMenu>
+            								</f:facet>
+            								<h:outputText value="#{user.userType}" />
+        								</p:column>       
+   	 								</p:dataTable>
+   	 							</h:form>
+   	 							
+   	 							<h:form id="userChanges">
+   	 								<p:dialog header="Opciones" widgetVar="userDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        							<p:outputPanel id="userDetail" style="text-align:center;">
+            							<p:panelGrid  columns="3" rendered="#{not empty adminBean.selectedUser}" columnClasses="label,value">
+                						<f:facet name="header">
+                    						<p:graphicImage url="/images/user.png" style="width:40px;"/> 
+                						</f:facet>
+                						
+                						<h:outputText value="Nombre:" />
+                						<p:inputText required="true" id="itName" value="#{adminBean.selectedUser.fullName}">
+                							<f:validateLength maximum="60" />
+                						</p:inputText>
+                						<p:message for="itName" display="icon" />
+                						
+                						<h:outputText value="Usuario:" />
+                						<h:outputText value="#{adminBean.selectedUser.userName}" />              						
+ 										<br/>
+ 											
+                						<h:outputText value="Correo:" />
+                						<p:inputText required="true" id="itEmail" value="#{adminBean.selectedUser.emailAddress}">
+                							<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+											<f:validateLength maximum="75" />
+                						</p:inputText>
+                						<p:message for="itEmail" display="icon" />
+                						
+                						<h:outputText value="Último cambio contraseña:" />
+                						<h:outputText value="#{adminBean.selectedUser.dateLastPassword}" />
+                						<br/>
+                						
+                						<h:outputText value="Estado:" />
+                						<h:outputText value="Activo" rendered="#{'A' eq adminBean.selectedUser.active}" />
+                						<h:outputText value="Inactivo" rendered="#{'I' eq adminBean.selectedUser.active}" />
+                						<br/>
+                						
+                						<h:outputText value="Tipo:" />
+                						<h:outputText value="#{adminBean.selectedUser.userType}" />
+                						<br/>
+ 
+                
+            							</p:panelGrid>
+            							<p:commandButton value="Guardar" action="#{adminBean.modifyUser()}" icon="ui-icon ui-icon-disk" update="userDetail,tabView:formUsers:tableUsers"/>
+            							<p:commandButton value="Enviar contraseña" action="#{adminBean.send()}" icon="ui-icon ui-icon-mail-open" update="tabView:formUsers:tableUsers" />
+                						
+                							
+                						<p:commandButton rendered="#{'NORMAL' eq adminBean.selectedUser.userType}" value="Desactivar" action="#{adminBean.loock()}" icon="ui-icon ui-icon-locked" update="tabView:formUsers:tableUsers" />
+                							
+                							
+                						<p:commandButton rendered="#{'NORMAL' eq adminBean.selectedUser.userType}" value="Activar" action="#{adminBean.unloock()}" icon="ui-icon ui-icon-unlocked" update="tabView:formUsers:tableUsers" />
+                							
+        							</p:outputPanel>
+    							</p:dialog>	
+   	 							
+   	 							</h:form>	
+   	 												
+						
+						
+					
+						
+					
+					</p:tab>
+			
+					<p:tab title="Parámetros">
+					
+						<h:form id="formParameters">
+							
+							<p:dataTable id="dataParameters" var="parameter" value="#{adminBean.parameters}"
+								scrollable="true" scrollHeight="300">
+								
+								<f:facet name="header">
+									Parámetros establecidos
+									<p:outputLabel style="font-weight: bold;" rendered="#{'true' eq adminBean.parametersDefault}" value="(hay algunos parámetros por defecto, por favor actualícelos y guárdelos)" />
+								</f:facet>
+								
+    							<p:column headerText="Descripción">
+        							<h:outputText value="#{parameter.descriptionParameter}" />
+    							</p:column>
+ 
+    							<p:column headerText="Número">
+        							<h:outputText value="#{parameter.numberValue}" />
+    							</p:column>
+ 
+    							<p:column style="text-align:center;" headerText="Cambios">
+        							<p:commandButton icon="ui-icon ui-icon-key" update="tabView:formParameters:parameterDetail" oncomplete="PF('parameterDialog').show()" value="Cambios" >
+                						<f:setPropertyActionListener value="#{parameter}" target="#{adminBean.selectedParameter}" />
+                					</p:commandButton>               					
+                					
+    							</p:column> 
+   
+							</p:dataTable>   						
+ 
+    						<p:dialog header="Cambios" widgetVar="parameterDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        						<p:outputPanel id="parameterDetail" style="text-align:center;">
+            						<p:panelGrid  columns="3" rendered="#{not empty adminBean.selectedParameter}" columnClasses="label,value">
+                			 			
+                			 			<p:outputLabel value="Descripción:" for="itDescription" />
+                						<p:inputText disabled="true" required="true" style="width:350px;" id="itDescription" value="#{adminBean.selectedParameter.descriptionParameter}">
+                							<f:validateLength maximum="55" />
+                						</p:inputText>
+                						<p:message for="itDescription" display="text" />
+                						
+                						<p:outputLabel value="Texto:" for="itText" />
+                						<p:inputText disabled="true" required="true" style="width:50px;" id="itText" value="#{adminBean.selectedParameter.textValue}">
+                							<f:validateLength maximum="10" />
+                						</p:inputText>
+                						<p:message for="itText" display="text" />
+                						
+                						<p:outputLabel value="Tipo:" for="itTipo" />
+                						<p:inputText disabled="true" required="true" style="width:50px;" id="itTipo" value="#{adminBean.selectedParameter.parameterType}">
+                							<f:validateLength maximum="1" />
+                						</p:inputText>
+                						<p:message for="itTipo" display="text" />
+                						
+                						<p:outputLabel value="Cantidad:" for="itCantidad" />
+                						<p:inputText required="true" style="width:50px;" id="itCantidad" value="#{adminBean.selectedParameter.numberValue}">
+                							<f:validateLongRange minimum="1" maximum="99999" />
+                							<f:validateLength maximum="5" />
+                						</p:inputText>                						             						
+                						<p:message for="itCantidad" display="icon" />    
+                			 			
+                						
+            						</p:panelGrid>
+            						<p:keyFilter for="itCantidad" mask="num" />
+            						<p:tooltip for="itCantidad" value="1 - 99999" />
+            						<p:commandButton rendered="#{'false' eq adminBean.parametersDefault}" value="Guardar" action="#{adminBean.changeParameter()}" update="dataParameters,parameterDetail" />
+            						<p:commandButton rendered="#{'true' eq adminBean.parametersDefault}" value="Guardar" action="#{adminBean.addParameter()}" update="dataParameters,parameterDetail" />
+        						</p:outputPanel>
+    						</p:dialog>
+						
+						
+						</h:form>
+										
+						
+					</p:tab>	
+					
+					
+					<p:tab title="Auditoría">					
+					
+						<h:form id="formAudit">
+							
+							<p:dataTable id="tableAudit" var="audit" value="#{adminBean.actions}" widgetVar="auditTable"
+                 				emptyMessage="No se encontranron acciones con ese criterio" filteredValue="#{adminBean.filteredActions}"
+                 				scrollable="true" scrollHeight="300">
+ 
+        					<f:facet name="header">
+        						Tabla de acciones
+        					    <p:commandButton value="Actualizar" icon="ui-icon ui-icon-arrowrefresh-1-s" action="#{adminBean.updateActions()}" update="tabView:formAudit:tableAudit" />
+  							    <p:outputPanel style="text-align:left;" >
+  							        <h:commandLink action="#{adminBean.reportAuditExcel()}">
+        								<p:graphicImage url="/images/excel.png" style="width:40px;"/>
+        							</h:commandLink>
+ 
+    								<h:commandLink action="#{adminBean.reportAuditPDF()}">
+        								<p:graphicImage url="/images/pdf.png" style="width:40px;" />
+        							</h:commandLink>   
+  							        
+  							    </p:outputPanel>	 						
+        							    						
+        					
+            					<p:outputPanel style="text-align:right;" >
+                					<h:outputText value="Búsqueda en todos los campos:" />
+                					<p:inputText id="globalFilter" onkeyup="PF('auditTable').filter()" style="width:150px" placeholder="Palabra clave"/>
+            					</p:outputPanel>
+        					</f:facet>
+ 
+        					<p:column filterBy="#{audit.id}" headerText="Id" filterMatchMode="startsWith" style="width:9%;">
+            					<h:outputText value="#{audit.id}" />
+        					</p:column>
+        					
+        					<p:column filterBy="#{audit.tableId}" headerText="Id Tabla" filterMatchMode="startsWith" style="width:9%;">
+            					<h:outputText value="#{audit.tableId}" />
+        					</p:column>
+        					
+        					<p:column filterBy="#{audit.userId}" headerText="Id Uasuario" filterMatchMode="startsWith" style="width:9%;">
+            					<h:outputText value="#{audit.userId}" />
+        					</p:column>
+        					
+        					<p:column headerText="Operación">
+            					<h:outputText value="Ingresó" rendered="#{'LOGIN' eq audit.operation}" />
+            					<h:outputText value="Salió" rendered="#{'LOGOUT' eq audit.operation}" />
+            					<h:outputText value="Registró" rendered="#{'REGIST' eq audit.operation}" />
+            					<h:outputText value="Cambió contraseña" rendered="#{'CH_PASS' eq audit.operation}" />
+            					<h:outputText value="Actualizó" rendered="#{'UPDATE' eq audit.operation}" />
+            					<h:outputText value="Comentó" rendered="#{'COMENT' eq audit.operation}" />
+            					<h:outputText value="Añadió repetida" rendered="#{'ADD_R' eq audit.operation}" />
+            					<h:outputText value="Añadió faltante" rendered="#{'ADD_M' eq audit.operation}" />
+            					<h:outputText value="Envío de contraseña" rendered="#{'SEND_PASS' eq audit.operation}" />
+            					<h:outputText value="Buscó repetida" rendered="#{'SEARCH_R' eq audit.operation}" />
+            					<h:outputText value="Borró faltante" rendered="#{'DELET_M' eq audit.operation}" />
+            					<h:outputText value="Borró repetida" rendered="#{'DELET_R' eq audit.operation}" />
+            					
+        					</p:column>
+        					
+        					<p:column filterBy="#{audit.createDate}" headerText="Fecha" filterMatchMode="startsWith">
+            					<h:outputText value="#{audit.createDate}" />
+        					</p:column>
+        					
+        					<p:column filterBy="#{audit.ipAddress}" headerText="Dirección IP" filterMatchMode="startsWith">
+            					<h:outputText value="#{audit.ipAddress}" />
+        					</p:column>     
+ 
+        					<p:column filterBy="#{audit.tableName}" headerText="Tabla" filterMatchMode="in">
+            					<f:facet name="filter">
+                					<p:selectCheckboxMenu label="Tablas" onchange="PF('auditTable').filter()" panelStyle="width:125px" scrollHeight="150">
+                    					<f:selectItems value="#{auditConstantsBean.auditTableNames}" />
+                					</p:selectCheckboxMenu>
+            					</f:facet>
+            					<h:outputText value="#{audit.tableName}" />
+        					</p:column>
+        					       
+    						</p:dataTable>
+										  						
+						
+						
+						</h:form>							
+						
+					</p:tab>
+					
+					<p:tab title="Estadios">
+					
+						<h:form id="formStadium">
+							<p:dataTable id="stadiumsTable" value="#{adminBean.stadiums}" var="stadium"
+							scrollable="true" scrollHeight="200">
+							
+								<f:facet name="header">
+									Estadios								
+								</f:facet>
+							
+								<p:column headerText="Imagen">
+									<p:graphicImage url="/stadium/#{stadium.photo}.png" style="width:170px;" />								
+								</p:column>
+														
+								<p:column headerText="Capacidad">
+									<p:outputLabel value="#{stadium.capacity}" />
+								
+								</p:column>
+								
+								<p:column headerText="Ciduad">
+									<p:outputLabel value="#{stadium.city}" />								
+								</p:column>
+								
+								<p:column headerText="Población">
+									<p:outputLabel value="#{stadium.population}" />
+								
+								
+								</p:column>
+								
+								<p:column headerText="Tempertura">
+									<p:outputLabel value="#{stadium.temperature} C°" />								
+								</p:column>
+								
+								<p:column style="text-align:center;" headerText="Modificar">
+									<p:commandButton value="Modificar" update="tabView:formStadium:stadiumDetail" oncomplete="PF('stadiumDialog').show()">
+										<f:setPropertyActionListener value="#{stadium}" target="#{adminBean.selectedStadium}"></f:setPropertyActionListener>
+									</p:commandButton>
+								
+								</p:column>
+							
+							</p:dataTable>
+							
+							<p:dialog header="Cambio" widgetVar="stadiumDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        						<p:outputPanel id="stadiumDetail" style="text-align:center;">
+            						<p:panelGrid  columns="3" rendered="#{not empty adminBean.selectedStadium}" columnClasses="label,value">
+                						<f:facet name="header">
+                    						<p:graphicImage url="/stadium/#{adminBean.selectedStadium.photo}.png" style="width:230px; border-radius:30%;" /> 
+                						</f:facet>
+ 
+                						<h:outputText value="Ciudad:" />
+                						<p:inputText id="itCity" required="true" value="#{adminBean.selectedStadium.city}">
+                							<f:validateLength maximum="25" />
+                						</p:inputText>
+                						<p:message for="itCity" display="icon" />
+                						
+                						<h:outputText value="Población:" />
+                						<p:inputText id="itPopul" required="true" value="#{adminBean.selectedStadium.population}">
+                							<f:validateLength maximum="60" />
+                						</p:inputText>
+                						<p:message for="itPopul" display="icon" />
+                						
+                						<h:outputText value="Capacidad:" />
+                						<p:inputText id="itCap" required="true" value="#{adminBean.selectedStadium.capacity}">
+                							<f:validateLength maximum="50" />
+                						</p:inputText>
+                						<p:message for="itCap" display="icon" />
+                						
+                						<h:outputText value="Temperatura:" />
+                						<p:inputMask mask="99C° - 99C°" id="itTemp" required="true" value="#{adminBean.selectedStadium.temperature}">
+                							<f:validateLength maximum="60" />
+                						</p:inputMask>
+                						<p:message for="itTemp" display="icon" />
+ 
+                
+            						</p:panelGrid>
+            						<p:commandButton value="Guardar" action="#{adminBean.modifyStadium()}" update="stadiumsTable,stadiumDetail" />
+        						</p:outputPanel>
+    						</p:dialog>
+						
+						</h:form>
+						
+						<h:form id="formAddStadium">
+							<p:panel id="panelAddSt" header="Agregar estadio">
+								<p:panelGrid id="gridAddSt" columns="2">
+									<p:selectOneMenu value="#{adminBean.stadium.photo}" >
+										<f:selectItem itemValue="moscu" itemLabel="moscu" />
+										<f:selectItem itemValue="kazan" itemLabel="kazan" />
+										<f:selectItem itemValue="saransk" itemLabel="saransk" />
+										<f:selectItem itemValue="samara" itemLabel="samara" />
+										<f:selectItem itemValue="moscu2" itemLabel="moscu2" />
+										<f:selectItem itemValue="ekaterimburgo" itemLabel="ekaterimburgo" />
+										<f:selectItem itemValue="volgogrado" itemLabel="volgogrado" />
+										<f:selectItem itemValue="rostovdeldon" itemLabel="rostovdeldon" />
+										<f:selectItem itemValue="sochi" itemLabel="sochi" />
+										<f:selectItem itemValue="nizhny" itemLabel="nizhny" />
+										<f:selectItem itemValue="sanpetes" itemLabel="sanpetes" />
+										<f:selectItem itemValue="kaliningrado" itemLabel="kaliningrado" />
+									</p:selectOneMenu>
+									<br/>
+									
+									<p:inputText placeholder="Ciudad" required="true" value="#{adminBean.stadium.city}" id="itCitySt" >
+										<f:validateLength maximum="25" />
+									</p:inputText>
+									<p:message for="itCitySt" display="icon" />
+									
+									<p:inputText placeholder="Población" required="true" value="#{adminBean.stadium.population}" id="itPobSt" >
+										<f:validateLongRange minimum="0" maximum="999999999999" />
+										<f:validateLength maximum="60" />
+									</p:inputText>
+									<p:message for="itPobSt" display="icon" />
+									
+									<p:inputText placeholder="Capacidad" required="true" value="#{adminBean.stadium.capacity}" id="itCapSt" >
+										<f:validateLongRange minimum="0" maximum="999999999999" />
+										<f:validateLength maximum="50" />
+									</p:inputText>
+									<p:message for="itCapSt" display="icon" />
+									
+									<p:inputMask mask="99C° - 99C°" value="#{adminBean.stadium.temperature}" id="itTempSt" required="true" placeholder="Temperatura" >
+										<f:validateLength maximum="60" />
+									</p:inputMask>
+									<p:message for="itTempSt" display="icon" />
+								
+								</p:panelGrid>
+								<p:commandButton value="Agregar" action="#{adminBean.addStadium()}" update="tabView:formStadium:stadiumsTable,gridAddSt" />
+							
+							</p:panel>
+						
+						
+						</h:form>		
+					
+					</p:tab>	
+					
+			
+					<p:tab title="Editar perfil">
+						
+							<p:panel style="width:450px; margin-left:200px;" header="Configuración" >
+							<h:form id="formEditar" style="text-align:center;">
+							<p:growl id="growlEdit" showDetail="true" sticky="true" />
+						 		<p:panelGrid columns="3" id="gridEditar">
+						 			<p:outputLabel for="itNameE" value="Nombre:"/>
+									<p:inputText placeholder="Tu nombre" id="itNameE" title="Tu nombre" value="#{userBean.userLogin.fullName}" required="true">
+										<f:validateLength minimum="1" maximum="50" />
+									</p:inputText>	
+									<p:message for="itNameE" display="icon"/>
+									
+									<p:outputLabel for="itUser" value="Usuario:"/>
+									<p:inputText placeholder="Tu usuario" id="itUser" value="#{userBean.userLogin.userName}" required="true">
+										<f:validateLength minimum="6" maximum="8" />
+									</p:inputText>	
+									<p:message for="itUser" display="icon"/>		
+								
+									<p:outputLabel for="itEmailE" value="Email:"/>
+									<p:inputText placeholder="Tu correo" id="itEmailE" value="#{userBean.userLogin.emailAddress}" required="true">
+										<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+									</p:inputText>
+									<p:message for="itEmailE" display="icon"/>
+								
+									<p:outputLabel for="itPhoneE" value="Teléfono:"/>
+									<p:inputText placeholder="Tu número telefónico" id="itPhoneE" value="#{userBean.userLogin.phoneNumber}">
+										<f:validateLongRange maximum="9999999999" />
+										<f:validateLength minimum="10" maximum="10" />
+									</p:inputText>	
+									<p:message for="itPhoneE" display="icon"/>							 
+						 
+						 		</p:panelGrid>
+						 		<p:keyFilter for="itPhoneE" mask="num" /> 
+						 		<p:commandButton value="Guardar" action="#{userBean.edit()}" icon="ui-icon ui-icon-check" update="gridEditar,growlEdit" />
+								<p><br/></p>
+								<p:outputLabel value="Cambio de contraseña" />
+							</h:form>
+							<h:form id="formEditarPass" style="text-align:center;" >
+								<p><br/></p>
+								<p:commandButton icon="ui-icon ui-icon-help" update="tabView:formEditarPass:passDetail" oncomplete="PF('passDialog').show()" value="AYUDA" />
+													
+								<p:panelGrid columns="3" id="gridEditarPass">
+									
+						 			<p:outputLabel for="itPass1" value="Contraseña:"/>
+										<p:password placeholder="Contraseña actual" id="itPass1" value="#{userBean.pass1}" required="true">
+						
+										</p:password>
+										<p:message for="itPass1" display="text"/>
+								
+										<p:outputLabel for="itPass2" value="Confirmar contraseña:"/>
+										<p:password placeholder="Contraseña actual" id="itPass2" value="#{userBean.pass2}" required="true">
+						
+										</p:password>
+										<p:message for="itPass2" display="text"/>
+								
+										<p:outputLabel value="" />
+										<p:outputLabel value="Nueva contraseña" />
+										<p:outputLabel value="" />
+																							
+										<p:outputLabel for="itNewPass1" value="Nueva contraseña:"/>
+										<p:password placeholder="Nueva contraseña" id="itNewPass1" value="#{userBean.newPass1}" required="true">
+											<p:keyFilter regEx="/[A-Za-z0-9]/i"/>
+											<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})" />
+										</p:password>
+										<p:message for="itNewPass1" display="text"/>									
+						 
+										<p:outputLabel for="itNewPass2" value="Confirmar nueva contraseña:"/>
+										<p:password placeholder="Confirmar nueva contraseña" id="itNewPass2" value="#{userBean.newPass2}" required="true">
+											<p:keyFilter regEx="/[A-Za-z0-9]/i"/>
+											<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})" />
+										</p:password>
+										<p:message for="itNewPass2" display="text"/>							 
+						 
+						 		</p:panelGrid>
+						 			<p:tooltip id="toolTipFade1" for="itPass1" value="Digite contraseña actual" position="top"/>
+						 			<p:tooltip id="toolTipFade2" for="itPass2" value="Digite nuevamente contraseña actual" position="top"/>
+						 			<p:tooltip id="toolTipFade3" for="itNewPass1" value="Click en botón AYUDA" position="top"/>
+						 			<p:tooltip id="toolTipFade4" for="itNewPass2" value="Click en botón AYUDA" position="top"/>
+						 			<p:commandButton value="Cambiar" action="#{userBean.editPass()}" icon="ui-icon ui-icon-check" update="gridEditarPass" />
+								
+								<p:dialog header="Ayuda" widgetVar="passDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        						<p:outputPanel id="passDetail" style="text-align:center;">
+            						<p:panelGrid  columns="1" rendered="#{not empty adminBean.user}" columnClasses="label,value">
+                			 			
+                			 			<h:outputText value="Restricciones para cambio de contraseña:" style="font-weight:bold;" />
+                			 			<h:outputText value="- Debe tener entre 6 a 8 carácteres." />
+                			 			<h:outputText value="- Solo letras y números." />
+                			 			<h:outputText value="- Al menos una mayúscula." />
+                			 			<h:outputText value="- Al menos una minúscula." />
+                			 			<h:outputText value="- Al menos un dígito." />               			 		
+                			 		
+                			 		</p:panelGrid>
+                			 	</p:outputPanel>
+    						</p:dialog>
+								
+								
+							
+							</h:form>		
+							</p:panel>				
+						
+									
+				
+					</p:tab>
+						
+		
+				</p:tabView>	
+  			
+  			
+		</div>
+
+		<div class="footer">
+			<p>World Cup Sticker Changer 2018</p>
+			<p> <br/> </p>
+			<p> Contact </p>
+			<p> Juan Sebastián Rodriguez Gómez - jsrodriguezg@unbosque.edu.co </p>
+			<p> Oscar Alejando Rojas Bernal -  orojasb@unbosque.edu.co</p>
+			<p> Josué Gabriel Suarez Berdugo - jgsuarez@unbosque.edu.co </p>
+			<p> Victor Andrés Pedraza León - vpedraza@unbosque.edu.co </p>
+			<p>© (2018)</p>
+			<p> <br/> </p>
+  			<p>Powered by w3.css</p>
+		</div>
+
+	</h:body>
+</html>

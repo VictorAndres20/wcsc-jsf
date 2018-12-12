@@ -1,0 +1,715 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>WCSC - Sticker</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<style>
+		/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+		@media (max-width: 600px) {
+    	.column {
+        	width: 100%;
+    		}
+		}
+		
+		*{
+    		box-sizing: border-box;
+    		font-family: Arial, Helvetica, sans-serif;
+		}
+
+		body {
+			background-image: url(bg.png);
+			background-position: center center;
+			background-repeat: no-repeat;
+				
+  			background-size: cover;
+  			background-attachment: fixed;
+  			min-height: 100vh;
+  			margin: 0;
+  			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		/* Style the top navigation bar */
+		.topnav {
+    		overflow: hidden;
+    		color: #fff;
+    		font-family:  "Times New Roman", Georgia, Serif;
+    		background-color: rgba(200,200,200,0.2);
+		}
+
+		/* Style the content */
+		.content {
+			border-radius:20px;
+    		
+    		padding: 10px;
+    		
+		}
+
+		/* Style the footer */
+		.footer {
+			background: rgba(245,248,250,1);
+			background: -moz-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,248,250,1)), color-stop(35%, rgba(220,228,234,1)), color-stop(69%, rgba(183,200,209,1)), color-stop(89%, rgba(213,227,235,1)), color-stop(100%, rgba(229,242,250,1)));
+			background: -webkit-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -o-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -ms-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: linear-gradient(to bottom, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8fa', endColorstr='#e5f2fa', GradientType=0 );
+			color:rgb(   100, 97, 97 );
+			border-radius:20px;
+    		padding: 10px;
+    		text-align: center;
+    		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		
+		/* Style the header */
+		.news {
+    	background-color: #f1f1f1;
+    	padding: 30px;
+    	text-align: center;
+    	font-size: 35px;
+		}
+		
+		/* Create three equal columns that floats next to each other */
+		.column {
+			background-color: rgb( 138, 136, 136 );
+    		float: left;
+    		width:100%;
+    		padding: 10px;
+    		
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+    	content: "";
+    	display: table;
+    	clear: both;
+		}
+		
+		.fontWhite
+		{
+			
+			background: rgba(245,248,250,1);
+			background: -moz-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,248,250,1)), color-stop(35%, rgba(220,228,234,1)), color-stop(69%, rgba(183,200,209,1)), color-stop(89%, rgba(213,227,235,1)), color-stop(100%, rgba(229,242,250,1)));
+			background: -webkit-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -o-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -ms-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: linear-gradient(to bottom, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8fa', endColorstr='#e5f2fa', GradientType=0 );
+			
+			border-radius:20px;
+			color: rgba( 32, 32, 32 ,1);
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			font-size: 1em;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		
+		.boxNews
+		{
+			padding: 10px;
+			background: rgba(245,248,250,1);
+			background: -moz-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,248,250,1)), color-stop(35%, rgba(220,228,234,1)), color-stop(69%, rgba(183,200,209,1)), color-stop(89%, rgba(213,227,235,1)), color-stop(100%, rgba(229,242,250,1)));
+			background: -webkit-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -o-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -ms-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: linear-gradient(to bottom, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8fa', endColorstr='#e5f2fa', GradientType=0 );
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+			
+		</style>
+	</h:head>	
+	<h:body>
+	
+		<f:metadata>
+		
+			<f:event type="preRenderView" listener="#{stickerBean.validateSession(userBean.userLogin)}"/>
+			<f:event type="preRenderView" listener="#{stickerBean.updateRepeatedList(userBean.userLogin.id)}"/>
+			<f:event type="preRenderView" listener="#{stickerBean.updateMissingList(userBean.userLogin.id)}"></f:event>
+		</f:metadata>
+	
+	
+		<div class="topnav">
+  			<h:form id="formHeader">
+				<table style="width:100%;" >
+  					<tr>
+  						<td style="width:10%; text-align:center; border-radius: 100px; background-color:#fff;" > <p:graphicImage url="/images/user.png" style="width:60px; " /> </td>
+  						<td style="width:60%; text-align:center; font-size: 2em; "> <p:outputLabel value="Bienvenido(a), #{userBean.userLogin.fullName}"/> </td>
+  						<td style="width:30%; text-align:right;" > 
+  						<p:splitButton value="Opciones" icon="ui-icon ui-icon-gear" >
+                           <p:menuitem value="Ayuda" icon="ui-icon ui-icon-help" style="width: 100px;"/>
+                           <p:menuitem value="Salir" action="#{userBean.exit()}" icon="ui-icon ui-icon-power" />
+                        </p:splitButton>
+  						</td>
+  					</tr>
+  					
+  				
+  				</table>
+			</h:form>
+		</div>
+
+		<div class="content">
+  			
+  			<p:tabView id="tabView" orientation="left">
+					
+					<p:tab title="Noticias">
+					<h:form id="formInicio" style="text-align:center; width:100%;">
+							
+						<div class="row">
+							<!-- Noticia 1 -->
+  							<div class="column" width="70%" >
+  							
+  								<div class="boxNews" >
+  								 	
+  								 	<p:carousel autoPlayInterval="4000" id="carruselNews" value="#{stickerBean.news}" headerText="Noticias" var="newN" itemStyle="text-align:center" responsive="true">
+        									<f:facet name="header">
+            									Noticias
+            									<p:commandButton value="Actualizar" icon="ui-icon ui-icon-arrowrefresh-1-s" update="carruselNews" action="#{stickerBean.updateNews()}" />
+        									</f:facet>
+        									
+        									<p:panelGrid columns="1" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+            									<f:facet name="header">
+            										
+                									<p:graphicImage url="/images/simplenewicon.png" style="width:50px;"/> 
+            									</f:facet>
+            									
+            										<h:outputText value="#{newN.shortDescription}" style="font-weight: bold; width:100%; text-align:center;"/>
+                     				
+                    								<h:outputText value="#{newN.largeDescription}" style="width:100%; text-align:center;" />
+                     									
+                    								<h:outputText value="Fecha: #{newN.dateNews}" style="font-style:italic; width:100%; text-align:center;"/>
+                    								
+ 														            									
+        									</p:panelGrid>
+ 
+        
+    									</p:carousel>  															 	
+  								
+  								</div>
+  							
+  							</div> 				
+  							
+						</div>
+						</h:form>
+						<h:form id="formAddNotice">
+							<p:panel header="Agregar noticia" style="text-align:center; margin-top:15px; width:500px;">
+    									<p:panelGrid id="gridNewNotice" columns="3">
+    										
+    										<p:outputLabel value="Título" for="itTitle" />
+    										<p:inputText id="itTitle" value="#{stickerBean.notice.shortDescription}" required="true">
+    												<f:validateLength minimum="1" maximum="58" />
+    										</p:inputText>
+    										<p:message for="itTitle" display="icon" />
+    											
+    										<p:outputLabel value="Descripción" for="itNotice" />
+    										<p:inputTextarea id="itNotice" value="#{stickerBean.notice.largeDescription}" required="true">
+    												<f:validateLength minimum="1" maximum="119" />
+    										</p:inputTextarea>
+    										<p:message for="itNotice" display="icon" />								
+					    										
+    										</p:panelGrid>
+    										<p:commandButton value="Añadir noticia" icon="ui-icon 	ui-icon-comment" action="#{stickerBean.addNotice()}" update="gridNewNotice,tabView:formInicio:carruselNews" />
+    									
+    									
+    									</p:panel>
+						
+						</h:form>
+									
+				
+					
+					</p:tab>
+		
+		
+					<p:tab title="Agregar lámina">
+					
+						<p:fieldset legend="Agregar repetida" toggleable="true" toggleSpeed="500" style="margin-bottom:20px" >
+        					<p:ajax event="toggle"/>
+        						<h:form id="formAgregarRep" style="text-align:center; width:100%;">
+					
+								<p:panel header="Agregar" style="width:560px; margin-left:200px;">
+									<p:panelGrid columns="3" id="gridAgregar">
+										<p:outputLabel for="itNumeroA" value="Número de lámina repetida:" />
+										<p:inputText id="itNumeroA" value="#{stickerBean.repeated.numberSheets}" required="true">
+											<f:validateLongRange minimum="0" maximum="679" />
+											<f:validateLength maximum="3"/>									
+										</p:inputText>
+										<p:message for="itNumeroA" display="icon" />
+								
+										<p:outputLabel for="itQuantityA" value="Cantidad de láminas repetidas:" />
+										<p:inputText id="itQuantityA" value="#{stickerBean.repeated.countSheets}" required="true">
+											<f:validateLongRange minimum="1" maximum="100" />
+											<f:validateLength maximum="3"/>
+										</p:inputText>
+										<p:message for="itQuantityA" display="icon" />
+								
+							
+									</p:panelGrid>
+									<p:tooltip id="toolAddRep" for="itNumeroA" value="0 - 679 láminas" position="top"/>
+									
+									<p:tooltip id="toolAddCant" for="itQuantityA" value="1 - 100 láminas" position="top"/>
+									<p:keyFilter for="itNumeroA" mask="num" />
+									<p:keyFilter for="itQuantityA" mask="num" />
+									<p:commandButton update="gridAgregar" value="Agregar lámina" action="#{stickerBean.addRepeated()}" />					
+								</p:panel>
+				
+							</h:form>
+        					
+    					</p:fieldset>
+    					
+    					<p:fieldset legend="Agregar faltante" toggleable="true" toggleSpeed="500">
+        					<p:ajax event="toggle"/>
+        						<h:form id="formAgregarFalt" style="text-align:center; width:100%;">
+					
+								<p:panel header="Agregar" style="width:560px; margin-left:200px;">
+									<p:panelGrid columns="3" id="gridAgregarF">
+										<p:outputLabel for="itNumeroAF" value="Número de lámina faltante:" />
+										<p:inputText id="itNumeroAF" value="#{stickerBean.missing.numberSheets}" required="true">
+											<f:validateLongRange minimum="0" maximum="679" />
+											<f:validateLength maximum="3"/>
+										</p:inputText>
+										<p:message for="itNumeroAF" display="icon" />									
+															
+									</p:panelGrid>
+									<p:tooltip id="toolAddMiss" for="itNumeroAF" value="0 - 679 láminas" position="top"/>
+									<p:keyFilter for="itNumeroAF" mask="num" />									
+									<p:commandButton update="gridAgregarF" value="Agregar lámina" action="#{stickerBean.addMissing()}" />					
+								</p:panel>
+				
+							</h:form>
+							
+							<h:form>
+    							<p:fieldset style="text-align:center; margin-top:15px;">
+    								<p:outputLabel value="¿Te faltan todas?" /> <p:commandButton value="Añadir todas" actionListener="#{stickerBean.addAllMissing()}" />    						
+    							</p:fieldset>
+    						</h:form>
+        					
+    					</p:fieldset>
+    					
+    					
+					
+					</p:tab>
+					
+					<p:tab title="Top listas">
+						
+						<p:tabView id="tabViewTop">					
+							
+							<p:tab title="Top más faltantes">
+								<h:form id="formTopMax">
+									<p:dataTable id="dataTopMax" value="#{stickerBean.userTopMax}" var="userSticker">
+								 	<p:column headerText="Usuario">
+								 		<p:outputLabel value="#{userSticker.userName}" />
+								 	</p:column>
+								 	
+								 	<p:column headerText="Cantidad">
+								 		<p:outputLabel value="#{userSticker.numberSheets}" />
+								 	</p:column>							 
+								 </p:dataTable>
+							
+								</h:form>
+								 
+							
+							
+							</p:tab>
+							
+							<p:tab title="Top menos faltantes">
+								<h:form id="formYopMin">
+									<p:dataTable id="dataTopMin" value="#{stickerBean.userTopMin}" var="userStickerM">
+								 	<p:column headerText="Usuario">
+								 		<p:outputLabel value="#{userStickerM.userName}" />
+								 	</p:column>
+								 	
+								 	<p:column headerText="Cantidad">
+								 		<p:outputLabel value="#{userStickerM.numberSheets}" />
+								 	</p:column>							 
+								 </p:dataTable>	
+								</h:form>
+														
+							
+							</p:tab>	
+							
+							<p:tab title="Top album lleno">
+								<h:form id="formFull">
+									<p:dataTable id="dataTopFull" value="#{stickerBean.userFullAlbum}" var="userStickerF">
+								 	<p:column headerText="Usuario">
+								 		<p:outputLabel value="#{userStickerF.userName}" />
+								 	</p:column>								 	
+								 							 
+								 </p:dataTable>
+								</h:form>
+								
+							
+							
+							</p:tab>							
+						
+						
+						</p:tabView>
+					
+					
+					</p:tab>
+			
+					<p:tab title="Buscar láminas">
+					
+						<p:tabView id="tabViewSearchStickers">						
+        					<p:tab title="Recomendaciones">
+        					
+        					<h:form id="formLaminasRecom">       						
+            					<p:dataTable id="dataRecom" var="stickerRecom" value="#{stickerBean.recomendedRepeatedList}" widgetVar="stickerRecomTable"
+                 					emptyMessage="No hay láminas repetidas con ese criterio" filteredValue="#{stickerBean.filteredRecomList}"
+                 					scrollable="true" scrollHeight="300">
+ 
+        							<f:facet name="header">
+        								<p:commandButton value="Actualizar" icon="ui-icon ui-icon-arrowrefresh-1-s" action="#{stickerBean.updateMissingList()}" update="dataRecom" />
+            							 <p:outputPanel style="text-align:left;" >
+  							        		<h:commandLink actionListener="#{stickerBean.reportExcel()}">
+        										<p:graphicImage url="/images/excel.png" style="width:40px;"/>
+        									</h:commandLink>
+ 											
+    										<h:commandLink actionListener="#{stickerBean.reportPDF()}">
+        										<p:graphicImage url="/images/pdf.png" style="width:40px;" />
+        									</h:commandLink>   
+  							        	<p:commandButton value="BOTON NUEVO" oncomplete="PF('dialogo').show()" update="tabView:tabViewSearchStickers:formLaminasRecom:dial" />
+  							    		</p:outputPanel>
+            							<p:outputPanel style="text-align:right;">
+                							<h:outputText value="búsqueda en todos los campos:" />
+                							<p:inputText id="globalFilter" onkeyup="PF('stickerRecomTable').filter()" style="width:150px" placeholder="número clave"/>
+            							</p:outputPanel>
+        							</f:facet>       							
+        							
+        							<p:column filterBy="#{stickerRecom.numberSheets}" headerText="Número" filterMatchMode="startsWith">
+            							<h:outputText value="#{stickerRecom.numberSheets}" />
+        							</p:column>       							 
+        							
+        							<p:column headerText="Usuario">
+            							<p:outputLabel value="#{stickerBean.getUserName(stickerRecom.userId)}" /> 
+        							</p:column>    							
+        							
+        							<p:column style="text-align:center;" headerText="Contactar">
+        								<p:commandButton value="Email" icon="ui-icon ui-icon-mail-closed" action="#{stickerBean.contactUser()}" >
+        									<f:setPropertyActionListener value="#{stickerRecom}" target="#{stickerBean.selectedSheet}"></f:setPropertyActionListener>
+        								</p:commandButton>
+    								</p:column>       							
+        
+    							</p:dataTable>
+            					
+            					<p:dialog header="HOLA" widgetVar="dialogo" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            						<p:outputPanel id="dial">
+            							<p:panelGrid columns="2">
+            							<p:outputLabel value="CORREO:" />
+            							<p:inputText placeholder="HOLA" />
+            							</p:panelGrid>
+            						
+            						
+            						</p:outputPanel>
+            					
+            					</p:dialog>
+					
+							</h:form>
+            					
+ 
+            
+        					</p:tab>
+        					
+        					<p:tab title="Buscar lámina en especial">
+        					<h:form id="formBuscar">				
+            												
+								<p:panel>
+									<p:panelGrid id="gridSearch" columns="4">
+										<p:outputLabel for="itNumberS" value="Número de lámina:" />
+										<p:message for="itNumberS" display="icon" />
+										<p:inputText id="itNumberS" value="#{stickerBean.searchNumber}" required="true">
+											<f:validateLongRange minimum="0" maximum="679" />
+											<f:validateLength minimum="1" maximum="3" />
+										</p:inputText>
+										<p:commandButton icon="ui-icon ui-icon-search" action="#{stickerBean.search()}" update="tableSearch,gridSearch" />
+								
+									</p:panelGrid>
+									<p:keyFilter for="itNumberS" mask="num" />					
+								</p:panel>
+								
+								<p:dataTable id="tableSearch" var="sheet" value="#{stickerBean.searchSeheets}"
+									scrollable="true" scrollHeight="300">
+    								<p:column headerText="Número">
+        								<h:outputText value="#{sheet.numberSheets}" />
+    								</p:column>   								
+ 
+    								<p:column headerText="Usuario">
+        								<p:outputLabel value="#{stickerBean.getUserName(sheet.userId)}" /> 
+    								</p:column>
+ 
+    								<p:column style="text-align:center;" headerText="Contactar">
+        								<p:commandButton value="Email" icon="ui-icon ui-icon-mail-closed" action="#{stickerBean.contactUser()}" >
+        									<f:setPropertyActionListener value="#{sheet}" target="#{stickerBean.selectedContactSheet}"></f:setPropertyActionListener>
+        								</p:commandButton>
+    								</p:column>
+								</p:dataTable> 
+								
+								 							
+    													
+							</h:form>			
+ 
+            
+        					</p:tab>
+        
+    					</p:tabView>					
+						
+					</p:tab>
+			
+					<p:tab title="Mis láminas">
+						<p:tabView id="tabViewDeleteStickers">
+						
+							<p:tab title="Mis repetidas">
+        					
+        					<h:form id="formLaminasDeleteR">      						
+            					
+            					<p:dataTable id="dataDR" var="stickerDR" value="#{stickerBean.repeatedList}" widgetVar="stickerDRTable"
+                 					emptyMessage="No hay láminas repetidas con ese criterio" filteredValue="#{stickerBean.filteredRepeted}"
+                 					scrollable="true" scrollHeight="300">
+ 
+        							<f:facet name="header">
+        								<p:commandButton value="Actualizar repetidas" icon="ui-icon ui-icon-arrowrefresh-1-s" action="#{stickerBean.updateRepeatedList()}" update="dataDR" />
+            							<p:outputPanel style="text-align:right;">
+                							<h:outputText value="búsqueda en todos los campos:" />
+                							<p:inputText id="globalFilter" onkeyup="PF('stickerDRTable').filter()" style="width:150px" placeholder="número clave"/>
+            							</p:outputPanel>
+        							</f:facet>       							
+        							
+        							<p:column filterBy="#{stickerDR.numberSheets}" headerText="Número" filterMatchMode="startsWith">
+            							<h:outputText value="#{stickerDR.numberSheets}" />
+        							</p:column>
+        							
+        							<p:column filterBy="#{stickerDR.countSheets}" headerText="Cantidad" filterMatchMode="startsWith">
+            							<h:outputText id="itQuantityDR" value="#{stickerDR.countSheets}" /> 
+        							</p:column>
+        							
+        							<p:column style="text-align:center;" headerText="Eliminar una unidad">
+            							<p:commandButton icon="ui-icon ui-icon-trash" value="Eliminar una" action="#{stickerBean.deleteOneRepeated()}" update="dataDR">
+            								<f:setPropertyActionListener value="#{stickerDR}" target="#{stickerBean.selectedSheet}"/>
+            							</p:commandButton>
+        							</p:column>
+        							
+        							<p:column style="text-align:center;" headerText="Eliminar todo">
+            							 <p:commandButton icon="ui-icon ui-icon-trash" value="Eliminar todo" action="#{stickerBean.deleteRepeated()}" update="dataDR">
+            								<f:setPropertyActionListener value="#{stickerDR}" target="#{stickerBean.selectedSheet}"/>
+            							</p:commandButton>
+        							</p:column>       							      							
+        
+    							</p:dataTable>
+    											
+					
+							</h:form>
+            					
+ 
+            
+        					</p:tab>
+        					
+        					<p:tab title="Mis faltantes">
+        					
+        						<h:form id="formLaminasDeleteF">
+        							
+        							
+        							<p:dataTable id="dataDM" var="stickerDM" value="#{stickerBean.missingList}" widgetVar="stickerDMTable"
+                 					emptyMessage="No hay láminas faltantes con ese criterio" filteredValue="#{stickerBean.filteredMissing}"
+                 					scrollable="true" scrollHeight="300">
+ 
+        							<f:facet name="header">
+        								<p:commandButton value="Actualizar faltantes" icon="ui-icon ui-icon-arrowrefresh-1-s" action="#{stickerBean.updateMissingList()}" update="dataDM" />
+                							
+            							<p:outputPanel style="text-align:right;">
+            								<h:outputText value="búsqueda en todos los campos:" />
+                							<p:inputText id="globalFilter" onkeyup="PF('stickerDMTable').filter()" style="width:150px" placeholder="número clave"/>
+            							</p:outputPanel>
+        							</f:facet>       							
+        							
+        							<p:column filterBy="#{stickerDM.numberSheets}" headerText="Número" filterMatchMode="startsWith">
+            							<h:outputText value="#{stickerDM.numberSheets}" />
+        							</p:column>           							
+        							
+        							<p:column style="text-align:center;" headerText="Eliminar">
+            							 <p:commandButton icon="ui-icon ui-icon-trash" value="Eliminar" action="#{stickerBean.deleteMissing()}">
+            								<f:setPropertyActionListener value="#{stickerDM}" target="#{stickerBean.missingSelectedSheet}"/>
+            							</p:commandButton>
+        							</p:column>       							      							
+        
+    							</p:dataTable>								
+					
+								</h:form>
+            					
+ 
+            
+        					</p:tab>
+						
+						
+						</p:tabView>
+			
+			
+					</p:tab>
+					
+					
+					<p:tab title="Estadios">
+						<h:form id="formStadium">
+							<p:carousel autoPlayInterval="3000" id="carruselStadium" value="#{stickerBean.stadiums}" headerText="Estadios" var="stadium" itemStyle="text-align:center" responsive="true">
+        									<f:facet name="header">
+            									Estadios            									
+        									</f:facet>
+        									
+        									<p:panelGrid columns="1" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+            									<f:facet name="header">
+            										
+                									<p:graphicImage url="/stadium/#{stadium.photo}.png" style="width:300px; border-radius:30%; "/> 
+            									</f:facet>
+            									
+            										<h:outputText value="Ciudad: #{stadium.city}" style="font-weight: bold; width:100%; text-align:center;"/>
+                     				
+                    								<h:outputText value="Población: #{stadium.population}" style="width:100%; text-align:center;" />
+                     									
+                    								<h:outputText value="Capcidad: #{stadium.capacity}" style="font-style:italic; width:100%; text-align:center;"/>
+                    								
+                    								<h:outputText value="Temperatura: #{stadium.temperature}" style="font-weight: bold; width:100%; text-align:center;"/>
+                     				
+ 																		            									
+        									</p:panelGrid>
+ 
+        
+    									</p:carousel>
+						</h:form>
+				
+					</p:tab>
+					
+					
+			
+					<p:tab title="Editar perfil">
+						
+							<p:panel style="width:450px; margin-left:200px;" header="Configuración" >
+							<h:form id="formEditar" style="text-align:center;">
+							<p:growl id="growlEdit" showDetail="true" sticky="true" />
+						 		<p:panelGrid columns="3" id="gridEditar">
+						 			<p:outputLabel for="itNameE" value="Nombre:"/>
+									<p:inputText placeholder="Tu nombre" id="itNameE" title="Tu nombre" value="#{userBean.userLogin.fullName}" required="true">
+										<f:validateLength minimum="1" maximum="50" />
+									</p:inputText>	
+									<p:message for="itNameE" display="icon"/>
+									
+									<p:outputLabel for="itUser" value="Usuario:"/>
+									<p:inputText placeholder="Tu usuario" id="itUser" value="#{userBean.userLogin.userName}" required="true">
+										<f:validateLength minimum="6" maximum="8" />
+									</p:inputText>	
+									<p:message for="itUser" display="icon"/>		
+								
+									<p:outputLabel for="itEmailE" value="Email:"/>
+									<p:inputText placeholder="Tu correo" id="itEmailE" value="#{userBean.userLogin.emailAddress}" required="true">
+										<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+									</p:inputText>
+									<p:message for="itEmailE" display="icon"/>
+								
+									<p:outputLabel for="itPhoneE" value="Teléfono:"/>
+									<p:inputText placeholder="Tu número telefónico" id="itPhoneE" value="#{userBean.userLogin.phoneNumber}">
+										<f:validateLongRange maximum="9999999999" />
+										<f:validateLength minimum="10" maximum="10" />
+									</p:inputText>	
+									<p:message for="itPhoneE" display="icon"/>							 
+						 
+						 		</p:panelGrid>
+						 		<p:tooltip id="toolTipFade6" for="itPhoneE" value="Mínimo 10 digitos" position="top"/>
+						 		<p:tooltip id="toolTipFade5" for="itUser" value="Mínimo 6, máximo 8 caracteres" position="top"/>
+						 		<p:keyFilter for="itPhoneE" mask="num" /> 
+						 		<p:commandButton value="Guardar" action="#{userBean.edit()}" icon="ui-icon ui-icon-check" update="gridEditar,growlEdit" />
+								<p><br/></p>
+								<p:outputLabel value="Cambio de contraseña" />
+							</h:form>
+							<h:form id="formEditarPass" style="text-align:center;" >
+								<p><br/></p>
+								<p:commandButton icon="ui-icon ui-icon-help" update=":tabView:formEditarPass:passDetail" oncomplete="PF('passDialog').show()" value="AYUDA" />
+								
+								<p:panelGrid columns="3" id="gridEditarPass">
+									
+						 			<p:outputLabel for="itPass1" value="Contraseña:"/>
+										<p:password placeholder="Contraseña actual" id="itPass1" value="#{userBean.pass1}" required="true">
+						
+										</p:password>
+										<p:message for="itPass1" display="text"/>
+								
+										<p:outputLabel for="itPass2" value="Confirmar contraseña:"/>
+										<p:password placeholder="Confirmar contraseña actual" id="itPass2" value="#{userBean.pass2}" required="true">
+						
+										</p:password>
+										<p:message for="itPass2" display="text"/>
+								
+										<p:outputLabel value="" />
+										<p:outputLabel value="Nueva contraseña" />
+										<p:outputLabel value="" />
+																	
+										<p:outputLabel for="itNewPass1" value="Nueva contraseña:"/>
+										<p:password placeholder="Nueva contraseña" id="itNewPass1" value="#{userBean.newPass1}" required="true">
+											<p:keyFilter regEx="/[A-Za-z0-9]/i"/>
+											<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})" />
+										</p:password>
+										<p:message for="itNewPass1" display="text"/>									
+						 
+										<p:outputLabel for="itNewPass2" value="Confirmar nueva contraseña:"/>
+										<p:password placeholder="Confirmar nueva contraseña" id="itNewPass2" value="#{userBean.newPass2}" required="true">
+											<p:keyFilter regEx="/[A-Za-z0-9]/i"/>
+											<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})" />
+										</p:password>
+										<p:message for="itNewPass2" display="text"/>							 
+						 
+						 		</p:panelGrid>
+						 			<p:tooltip id="toolTipFade1" for="itPass1" value="Digite contraseña actual" position="top"/>
+						 			<p:tooltip id="toolTipFade2" for="itPass2" value="Digite nuevamente contraseña actual" position="top"/>
+						 			<p:tooltip id="toolTipFade3" for="itNewPass1" value="Click en botón AYUDA" position="top"/>
+						 			<p:tooltip id="toolTipFade4" for="itNewPass2" value="Click en botón AYUDA" position="top"/>
+						 			<p:commandButton value="Cambiar" action="#{userBean.editPass()}" icon="ui-icon ui-icon-check" update="gridEditarPass" />
+							
+								<p:dialog header="Ayuda" widgetVar="passDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        						<p:outputPanel id="passDetail" style="text-align:center;">
+            						<p:panelGrid  columns="1" rendered="#{not empty stickerBean.user}" columnClasses="label,value">
+                			 			
+                			 			<h:outputText value="Restricciones para cambio de contraseña:" style="font-weight:bold;" />
+                			 			<h:outputText value="- Debe tener entre 6 a 8 carácteres." />
+                			 			<h:outputText value="- Solo letras y números." />
+                			 			<h:outputText value="- Al menos una mayúscula." />
+                			 			<h:outputText value="- Al menos una minúscula." />
+                			 			<h:outputText value="- Al menos un dígito." />               			 		
+                			 		
+                			 		</p:panelGrid>
+                			 	</p:outputPanel>
+    						</p:dialog>
+							
+							
+							
+							</h:form>		
+							</p:panel>				
+						
+									
+				
+					</p:tab>
+					
+							
+		
+				</p:tabView>	
+  			
+  			
+		</div>
+
+		<div class="footer">
+			<p>World Cup Sticker Changer 2018</p>
+			<p> <br/> </p>
+			<p> Contact </p>
+			<p> Juan Sebastián Rodriguez Gómez - jsrodriguezg@unbosque.edu.co </p>
+			<p> Oscar Alejando Rojas Bernal -  orojasb@unbosque.edu.co</p>
+			<p> Josué Gabriel Suarez Berdugo - jgsuarez@unbosque.edu.co </p>
+			<p> Victor Andrés Pedraza León - vpedraza@unbosque.edu.co </p>
+			<p>© (2018)</p>
+			<p> <br/> </p>
+  			<p>Powered by w3.css</p>
+		</div>
+
+	</h:body>
+</html>

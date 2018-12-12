@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+		
+	<h:head>
+		
+		<title>WCSC - Login</title>
+		<style>
+			body
+			{
+				display:block;
+				background-image: url(bg.png);
+				background-position: center center;
+				background-repeat: no-repeat;
+				
+  				background-size: cover;
+  				background-attachment: fixed;
+  				min-height: 100vh;
+				font-family: fantasy,Monospace;
+				
+				
+			}
+		
+			#divRegister
+			{
+				display: block;
+				background-color: #fff;
+				padding-top: 2%;
+				padding-bottom: 2%;
+				text-align: center;
+				width: 90%;
+				margin-left: 2%;
+				margin-right: 2%;
+			}
+			
+			#divLogin
+			{
+				display: block;
+				padding-top: 2%;
+				padding-bottom: 2%;
+				text-align: center;
+				width: 20%;
+				margin-top:0em;
+				margin-left: 62%;
+				
+			}
+			
+			.panelGridCenter , .panelRegister, .panelLogin
+			{
+    			margin-left:2%;
+    			margin-right: 2%;
+    			
+			}
+			
+			#form1
+			{
+				display: inline;
+			}	
+			
+			.bgRed
+			{
+				height: 4em;
+			}
+			
+			.imagePresentation
+			{
+				margin-left: 3em;
+			
+			}		
+		
+		
+		</style>
+	
+	</h:head>
+	
+	<h:body>	
+		<div id="imgWCSC" style="width:60%; float:left; display:block; text-align: center">
+			<p:graphicImage url="/images/logoIndex.png" style="width:400px;" />
+			
+			<p:messages id="messages" showDetail="true" closable="true">
+        						<p:autoUpdate />
+    						</p:messages>
+		
+		</div>				
+		
+		<div id="divLogin">
+			<h:form class="lNorth" id="form1" >		
+				<p:fieldset styleClass="panelLogin" style="width:2em">
+					
+					<p:panelGrid id="grid2" styleClass="panelGridCenter" columns="3">
+								
+						<p:outputLabel for="itEmailL" value="Usuario:"/>
+						<p:inputText id="itEmailL" value="#{userBean.userLogin.userName}" required="true">
+							<f:validateLength minimum="6" maximum="8" />
+						</p:inputText>
+						<p:message for="itEmailL" display="icon"/>
+						
+						<p:outputLabel for="itPassL" value="Contraseña:"/>
+						<p:password id="itPassL" value="#{userBean.pass}" required="true"/>
+						<p:message for="itPassL" display="icon"/>
+								
+					</p:panelGrid>
+					<div width="100%" align="center" style="margin-top:10px;">
+						
+    					<p:captcha id="cap" label="Captcha"  />
+					</div>
+					
+    				<p:commandButton ajax="true" icon="ui-icon-check" value="Inicia sesión" action="#{userBean.login()}" update="messages,grid2"/>			
+				 	
+				</p:fieldset>
+			</h:form>
+			<h:form id="formResetPass">
+				<div>
+					<p:commandLink style="text-decoration:none;" update="formResetPass:passDetail" oncomplete="PF('passDialog').show()">
+				 		<h:outputText style="color:#fff; font-style:italic; font-size:1.2em;" value="¿Olvidaste tu contraseña?" />
+				 	</p:commandLink>
+				</div>
+				
+				
+				<p:dialog header="Envío de nueva contraseña" widgetVar="passDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        			<p:outputPanel id="passDetail" style="text-align:center;">
+            			<p:panelGrid  columns="3" rendered="#{not empty userBean.userConfigure.emailAddress}" columnClasses="label,value">
+                			
+ 
+                		<p:outputLabel for="itResetEmail" value="Correo:" />
+                		<p:inputText id="itResetEmail" value="#{userBean.userConfigure.emailAddress}" required="true">
+                			<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                		</p:inputText>
+                		<p:message for="itResetEmail" display="text" />                
+            			</p:panelGrid>
+            			<p:commandButton rendered="#{not empty userBean.userConfigure.emailAddress}" value="Enviar" icon="ui-icon ui-icon-mail-closed" action="#{userBean.sendPass()}" />
+       			   </p:outputPanel>
+    			</p:dialog>			
+			</h:form>	
+						
+		</div>
+		
+			
+			<p:layout>
+				<p:layoutUnit styleClass="bgRed" position="center" style="text-align:center;">
+					<div>
+						<h2>World Cup Sticker Changer</h2>
+						<p>Plataforma de intercambio de láminas Panini mundial 2018</p>
+					</div>
+					
+					<p:contentFlow value="#{imageBean.images}" var="image">
+    					<p:graphicImage value="#{image}" styleClass="content" />
+    					
+					</p:contentFlow>  
+				
+				</p:layoutUnit>
+			
+				<p:layoutUnit position="east">
+				<h:form id="form2">			 
+					<div id="divRegister">
+						<p:panel styleClass="panelRegister" header="Regístrate aquí">
+							
+							<p:panelGrid id="grid" styleClass="panelGridCenter" columns="3">
+								
+								<p:outputLabel for="itName" value="Nombres y apellidos:"/>
+								<p:inputText placeholder="Tu nombre completo" id="itName" value="#{userBean.userRegister.fullName}" required="true">
+									<f:validateLength maximum="60" />
+								</p:inputText>								
+								<p:message for="itName" display="icon"/>
+								
+								<p:outputLabel for="itUser" value="Usuario:"/>
+								<p:inputText placeholder="Tu usuario" id="itUser" title="Tu nombre" value="#{userBean.userRegister.userName}" required="true">
+									<f:validateLength minimum="6" maximum="8" />
+								</p:inputText>								
+								<p:message for="itUser" display="icon"/>
+								
+								<p:outputLabel for="itEmail" value="Email:"/>
+								<p:inputText placeholder="Tu correo" id="itEmail" value="#{userBean.userRegister.emailAddress}" required="true">
+									<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+									<f:validateLength maximum="75" />
+								</p:inputText>
+								<p:message for="itEmail" display="icon"/>
+								
+								<p:outputLabel for="itPhone" value="Teléfono:"/>
+								<p:inputText placeholder="Tu número telefónico" id="itPhone" value="#{userBean.userRegister.phoneNumber}" >
+									<f:validateLongRange maximum="9999999999" />
+									<f:validateLength minimum="10" maximum="10" />
+								</p:inputText>
+								<p:message for="itPhone" display="icon"/>
+							
+							</p:panelGrid>
+							<p:tooltip id="toolTipFade" for="itUser" value="Mínimo 6, máximo 8 caracteres" position="top"/>
+							<p:keyFilter for="itPhone" mask="num" /> 
+							<div width="100%" align="center" style="margin-top:10px;">
+								
+    							<p:captcha label="Captcha"  />
+							</div>
+							
+							<p:commandButton ajax="true" icon="ui-icon ui-icon-contact" value="registrar" update="messages,grid" action="#{userBean.register()}" style="margin-top: 2%;"/>
+				
+						</p:panel>	
+							
+					</div>	
+				</h:form>			
+				</p:layoutUnit>			
+			</p:layout>
+	
+	</h:body>
+
+
+</html>

@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<title>WCSC - Editar perfil</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<style>
+		* {
+    		box-sizing: border-box;
+    		font-family: Arial, Helvetica, sans-serif;
+		}
+			
+		body {
+  			background-image: url(bg.png);
+			background-position: center center;
+			background-repeat: no-repeat;
+				
+  			background-size: cover;
+  			background-attachment: fixed;
+  			min-height: 100vh;
+  			margin: 0;
+  			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		/* Style the top navigation bar */
+		.topnav {
+    		overflow: hidden;
+		}		
+
+		/* Style the content */
+		.content {
+		    
+    		padding: 10px;
+    		
+		}
+
+		/* Style the footer */
+		.footer {
+    		background: rgba(245,248,250,1);
+			background: -moz-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,248,250,1)), color-stop(35%, rgba(220,228,234,1)), color-stop(69%, rgba(183,200,209,1)), color-stop(89%, rgba(213,227,235,1)), color-stop(100%, rgba(229,242,250,1)));
+			background: -webkit-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -o-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -ms-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: linear-gradient(to bottom, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8fa', endColorstr='#e5f2fa', GradientType=0 );
+			color:rgb(   100, 97, 97 );
+			border-radius:20px;
+    		padding: 10px;
+    		text-align: center;
+    		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		
+		.fontWhite
+		{
+			
+			background: rgba(245,248,250,1);
+			background: -moz-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(245,248,250,1)), color-stop(35%, rgba(220,228,234,1)), color-stop(69%, rgba(183,200,209,1)), color-stop(89%, rgba(213,227,235,1)), color-stop(100%, rgba(229,242,250,1)));
+			background: -webkit-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -o-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: -ms-linear-gradient(top, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			background: linear-gradient(to bottom, rgba(245,248,250,1) 0%, rgba(220,228,234,1) 35%, rgba(183,200,209,1) 69%, rgba(213,227,235,1) 89%, rgba(229,242,250,1) 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f8fa', endColorstr='#e5f2fa', GradientType=0 );
+			
+			border-radius:20px;
+			color: rgba( 32, 32, 32 ,1);
+			font-family: Arial, Helvetica, sans-serif;
+			font-weight: bold;
+			font-size: 1em;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		</style>
+		
+		
+	</h:head>
+	<h:body>
+	
+		<div class="topnav">
+  			<h:form id="formHeader">
+				<table  id="tableHeader" width="100%">
+					<tr>
+						<td colspan="3"><br/></td>
+					
+					</tr>
+					<tr>
+						<td width="23%" class="tdImage" align="center"> <p:graphicImage  url="/images/user.png" style="width:150px;" /> </td>
+						<td class="fontWhite" width="40%" align="center">
+							
+							<table width="100%" >
+								<tr>
+									<td align="center" colspan="4"> DATOS ACTUALES </td>
+								</tr>
+								<tr>
+									<td align="center" colspan="4"> <br/> </td>
+								</tr>
+								<tr>
+									<td><br/></td>
+									<td><p:outputLabel value="Nombre:" /> </td>
+									<td><h:outputText value="#{userBean.userLogin.fullName}" />  </td>
+									<td><br/></td>
+								</tr>
+								
+								<tr>
+									<td><br/></td>
+									<td><p:outputLabel value="Correo:" /> </td>
+									<td><h:outputText value="#{userBean.userLogin.emailAddress}" />  </td>
+									<td><br/></td>
+								</tr>
+								
+								<tr>
+									<td><br/></td>
+									<td><p:outputLabel value="Teléfono:" /> </td>
+									<td><h:outputText value="#{userBean.userLogin.phoneNumber}" />  </td>
+									<td><br/></td>
+								</tr>
+							
+							
+							</table>
+							
+							
+						</td>
+						<td><p:graphicImage url="/images/logoIndex.png" style="width:400px;"/></td>
+				
+					</tr>
+					<tr>
+						<td colspan="3"><br/></td>
+					
+					</tr>
+				
+				</table>
+			</h:form>
+		</div>		
+
+		<div class="content">
+ 
+ 			<h:form id="formConfiguration" align="center">
+ 			
+											
+			<p:panel style="text-align:center; width:470px; margin-left:25%" header="Cambio de contraseña obligatoria" >
+				<p:panelGrid columns="3" id="panelGrid">					
+					<p:outputLabel for="itPass1" value="Contraseña:"/>
+					<p:password placeholder="Contraseña" id="itPass1" value="#{userBean.pass1}" required="true">
+						
+					</p:password>
+					<p:message for="itPass1" display="text"/>
+								
+					<p:outputLabel for="itPass2" value="Confirmar contraseña:"/>
+					<p:password placeholder="Confirmar contraseña" id="itPass2" value="#{userBean.pass2}" required="true">
+						
+					</p:password>
+					<p:message for="itPass2" display="text"/>
+								
+					<p:outputLabel value="" />
+					<p:outputLabel value="Nueva contraseña" />
+					<p:outputLabel value="" />
+																	
+					<p:outputLabel for="itNewPass1" value="Nueva contraseña:"/>
+					<p:password placeholder="Nueva contraseña" id="itNewPass1" value="#{userBean.newPass1}" required="true">
+						<p:keyFilter regEx="/[A-Za-z0-9]/i"/>
+						<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,9})" />
+					</p:password>
+					<p:message for="itNewPass1" display="text"/>									
+						 
+					<p:outputLabel for="itNewPass2" value="Confirmar nueva contraseña:"/>
+					<p:password placeholder="Confirmar nueva contraseña" id="itNewPass2" value="#{userBean.newPass2}" required="true">
+						<p:keyFilter regEx="/[A-Za-z0-9]/i"/>
+						<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,9})" />
+					</p:password>
+					<p:message for="itNewPass2" display="text"/>			
+				</p:panelGrid>
+				<p:tooltip id="toolTipFade1" for="itPass1" value="Digite contraseña actual" position="top"/>
+						 			<p:tooltip id="toolTipFade2" for="itPass2" value="Digite nuevamente contraseña actual" position="top"/>
+						 			<p:tooltip id="toolTipFade3" for="itNewPass1" value="Click en botón AYUDA" position="top"/>
+						 			<p:tooltip id="toolTipFade4" for="itNewPass2" value="Click en botón AYUDA" position="top"/>
+				<p:commandButton value="Cambiar" action="#{userBean.editPass()}" icon="ui-icon ui-icon-check" update="panelGrid,growlPass" />
+				<p:commandButton icon="ui-icon ui-icon-help" update="formConfiguration:passDetail" oncomplete="PF('passDialog').show()" value="AYUDA" />
+			</p:panel>
+			
+			<p:dialog header="Ayuda" widgetVar="passDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        		<p:outputPanel id="passDetail" style="text-align:center;">
+            		<p:panelGrid  columns="1" columnClasses="label,value">
+                			 			
+                			<h:outputText value="Restricciones para cambio de contraseña:" style="font-weight:bold;" />
+                			 <h:outputText value="- Debe tener entre 6 a 8 carácteres." />
+                			 <h:outputText value="- Solo letras y números." />
+                			 <h:outputText value="- Al menos una mayúscula." />
+                			 <h:outputText value="- Al menos una minúscula." />
+                			 <h:outputText value="- Al menos un dígito." />               			 		
+                			 		
+                	</p:panelGrid>
+                </p:outputPanel>
+    		</p:dialog>
+				
+			
+			</h:form>
+ 
+ 			
+		</div>
+
+		<div class="footer">
+  			<p>World Cup Sticker Changer 2018</p>
+			<p> <br/> </p>
+			<p> Contact </p>
+			<p> Juan Sebastián Rodriguez Gómez - jsrodriguezg@unbosque.edu.co </p>
+			<p> Oscar Alejando Rojas Bernal -  orojasb@unbosque.edu.co</p>
+			<p> Josué Gabriel Suarez Berdugo - jgsuarez@unbosque.edu.co </p>
+			<p> Victor Andrés Pedraza León - vpedraza@unbosque.edu.co </p>
+			<p>© (2018)</p>
+			<p> <br/> </p>
+  			<p>Powered by w3.css</p>
+		</div>
+		
+		
+
+		
+	</h:body>
+</html>
